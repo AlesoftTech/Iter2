@@ -13,12 +13,12 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import tm.IngredienteTM;
+import tm.IngredientesTM;
 import tm.RotondAndesTM;
 import vos.Ingrediente;
 
 @Path("ingredientes")
-public class IngredienteServices {
+public class IngredientesServices {
 	/**
 	 * Atributo que usa la anotacion @Context para tener el ServletContext de la conexion actual.
 	 */
@@ -46,7 +46,7 @@ public class IngredienteServices {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response getIngredientes() {
-		IngredienteTM tm = new IngredienteTM(getPath());
+		IngredientesTM tm = new IngredientesTM(getPath());
 		List<Ingrediente> ingredientes;
 		try {
 			ingredientes = tm.darIngredientes();
@@ -62,7 +62,7 @@ public class IngredienteServices {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addIngrediente(@PathParam("id") Long id, Ingrediente ingrediente) {
-		IngredienteTM tm = new IngredienteTM(getPath());
+		IngredientesTM tm = new IngredientesTM(getPath());
 		try 
 		{
 			tm.addIngrediente(id, ingrediente);

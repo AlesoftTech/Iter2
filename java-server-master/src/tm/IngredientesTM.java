@@ -13,7 +13,7 @@ import dao.DAOUsuarios;
 import vos.Ingrediente;
 import vos.Usuario;
 
-public class IngredienteTM {
+public class IngredientesTM {
 	/**
 	 * Atributo estatico que contiene el path relativo del archivo que tiene los datos de la conexion
 	 */
@@ -57,7 +57,7 @@ public class IngredienteTM {
 	 * inicializa los atributos que se usan par la conexion a la base de datos.
 	 * @param contextPathP - path absoluto en el servidor del contexto del deploy actual
 	 */
-	public IngredienteTM(String contextPathP) {
+	public IngredientesTM(String contextPathP) {
 		connectionDataPath = contextPathP + CONNECTION_DATA_FILE_NAME_REMOTE;
 		initConnectionData();
 	}

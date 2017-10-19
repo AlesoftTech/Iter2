@@ -92,61 +92,61 @@ public class RotondAndesServices {
 //		return Response.status(200).entity(ingredientes).build();
 //	}
 
-	@GET
-	@Path("/productos")
-	@Produces({ MediaType.APPLICATION_JSON })
-	public Response getProductos() {
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<Producto> productos;
-		try {
-			productos = tm.darProductos();
-		} catch (Exception e) {
-			return Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(productos).build();
-	}
+//	@GET
+//	@Path("/productos")
+//	@Produces({ MediaType.APPLICATION_JSON })
+//	public Response getProductos() {
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<Producto> productos;
+//		try {
+//			productos = tm.darProductos();
+//		} catch (Exception e) {
+//			return Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(productos).build();
+//	}
 
-	@GET
-	@Path("/productos/restaurantes/{id: \\d+}")
-	@Produces({ MediaType.APPLICATION_JSON })
-	public Response getProductosRestaurante(@PathParam("id") Long id) {
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<Producto> productos;
-		try {
-			productos = tm.darProductosRestaurante(id);
-		} catch (Exception e) {
-			return Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(productos).build();
-	}
+//	@GET
+//	@Path("/productos/restaurantes/{id: \\d+}")
+//	@Produces({ MediaType.APPLICATION_JSON })
+//	public Response getProductosRestaurante(@PathParam("id") Long id) {
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<Producto> productos;
+//		try {
+//			productos = tm.darProductosRestaurante(id);
+//		} catch (Exception e) {
+//			return Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(productos).build();
+//	}
 
-	@GET
-	@Path("/productos/categorias/{id: \\d+}")
-	@Produces({ MediaType.APPLICATION_JSON })
-	public Response getProductosCategoria(@PathParam("id") Long id) {
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<Producto> productos;
-		try {
-			productos = tm.darProductosCategoria(id);
-		} catch (Exception e) {
-			return Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(productos).build();
-	}
+//	@GET
+//	@Path("/productos/categorias/{id: \\d+}")
+//	@Produces({ MediaType.APPLICATION_JSON })
+//	public Response getProductosCategoria(@PathParam("id") Long id) {
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<Producto> productos;
+//		try {
+//			productos = tm.darProductosCategoria(id);
+//		} catch (Exception e) {
+//			return Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(productos).build();
+//	}
 
-	@GET
-	@Path("/productos/precio/{precioMenor: \\d+}/{precioMayor: \\d+}")
-	@Produces({ MediaType.APPLICATION_JSON })
-	public Response getProductosPrecios(@PathParam("precioMenor") Long pMenor, @PathParam("precioMayor") Long pMayor) {
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<Producto> productos;
-		try {
-			productos = tm.darProductosPrecio(pMenor, pMayor);
-		} catch (Exception e) {
-			return Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(productos).build();
-	}
+//	@GET
+//	@Path("/productos/precio/{precioMenor: \\d+}/{precioMayor: \\d+}")
+//	@Produces({ MediaType.APPLICATION_JSON })
+//	public Response getProductosPrecios(@PathParam("precioMenor") Long pMenor, @PathParam("precioMayor") Long pMayor) {
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<Producto> productos;
+//		try {
+//			productos = tm.darProductosPrecio(pMenor, pMayor);
+//		} catch (Exception e) {
+//			return Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(productos).build();
+//	}
 
 
 //
@@ -176,7 +176,7 @@ public class RotondAndesServices {
 		RotondAndesTM tm = new RotondAndesTM(getPath());
 		try 
 		{
-			tm.addProducto(id, producto);
+//			tm.addProducto(id, producto);
 		} 
 		catch (Exception e)
 		{	
@@ -504,21 +504,21 @@ public class RotondAndesServices {
 		return Response.status(200).entity(preferencia).build();
 	}
 
-	@GET
-	@Path("/productos/mas-ofrecidos")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response getProductosMasOfrecidos(){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<Producto> ofrecidos;
-		try
-		{
-			ofrecidos = tm.darPoductosMasOfrecidos();
-			return Response.status( 200 ).entity( ofrecidos ).build( );			
-		}
-		catch( Exception e )
-		{
-			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
-		}
-	}
+//	@GET
+//	@Path("/productos/mas-ofrecidos")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response getProductosMasOfrecidos(){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<Producto> ofrecidos;
+//		try
+//		{
+//			ofrecidos = tm.darPoductosMasOfrecidos();
+//			return Response.status( 200 ).entity( ofrecidos ).build( );			
+//		}
+//		catch( Exception e )
+//		{
+//			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
+//		}
+//	}
 }
