@@ -1,6 +1,7 @@
 /**-------------------------------------------------------------------
  * $Id$
 
+
  * Universidad de los Andes (Bogotá - Colombia)
  * Departamento de Ingeniería de Sistemas y Computación
  *
@@ -13,6 +14,7 @@ package rest;
 
 
 import java.util.List;
+
 
 
 import javax.servlet.ServletContext;
@@ -70,25 +72,25 @@ public class RotondAndesServices {
 	}
 
 
-	/**
-	 * Metodo que expone servicio REST usando GET que da todos los videos de la base de datos.
-	 * <b>URL: </b> http://"ip o nombre de host":8080/VideoAndes/rest/videos
-	 * @return Json con todos los videos de la base de datos o json con 
-	 * el error que se produjo
-	 */
-	@GET
-	@Path("/ingredientes")
-	@Produces({ MediaType.APPLICATION_JSON })
-	public Response getIngredientes() {
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<Ingrediente> ingredientes;
-		try {
-			ingredientes = tm.darIngredientes();
-		} catch (Exception e) {
-			return Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(ingredientes).build();
-	}
+//	/**
+//	 * Metodo que expone servicio REST usando GET que da todos los videos de la base de datos.
+//	 * <b>URL: </b> http://"ip o nombre de host":8080/VideoAndes/rest/videos
+//	 * @return Json con todos los videos de la base de datos o json con 
+//	 * el error que se produjo
+//	 */
+//	@GET
+//	@Path("/ingredientes")
+//	@Produces({ MediaType.APPLICATION_JSON })
+//	public Response getIngredientes() {
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<Ingrediente> ingredientes;
+//		try {
+//			ingredientes = tm.darIngredientes();
+//		} catch (Exception e) {
+//			return Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(ingredientes).build();
+//	}
 
 	@GET
 	@Path("/productos")
@@ -147,24 +149,24 @@ public class RotondAndesServices {
 	}
 
 
-
-	@POST
-	@Path("/usuarios/{id: \\d+}/ingredientes")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response addIngrediente(@PathParam("id") Long id, Ingrediente ingrediente) {
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		try 
-		{
-			tm.addIngrediente(id, ingrediente);
-		} 
-		catch (Exception e)
-		{	
-			return Response.status(500).entity(doErrorMessage(e)).build();
-		}
-
-		return Response.status(200).entity(ingrediente).build();
-	}
+//
+//	@POST
+//	@Path("/usuarios/{id: \\d+}/ingredientes")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response addIngrediente(@PathParam("id") Long id, Ingrediente ingrediente) {
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		try 
+//		{
+//			tm.addIngrediente(id, ingrediente);
+//		} 
+//		catch (Exception e)
+//		{	
+//			return Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//
+//		return Response.status(200).entity(ingrediente).build();
+//	}
 
 	@POST
 	@Path("/usuarios/{id: \\d+}/productos")
