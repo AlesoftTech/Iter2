@@ -2,6 +2,7 @@ package rest;
 
 import java.util.List;
 
+
 import javax.servlet.ServletContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -13,7 +14,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import tm.IngredientesTM;
+
 import tm.RotondAndesTM;
 import vos.Ingrediente;
 
@@ -46,7 +47,7 @@ public class IngredientesServices {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response getIngredientes() {
-		IngredientesTM tm = new IngredientesTM(getPath());
+		RotondAndesTM tm = new RotondAndesTM(getPath());
 		List<Ingrediente> ingredientes;
 		try {
 			ingredientes = tm.darIngredientes();
@@ -62,7 +63,7 @@ public class IngredientesServices {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addIngrediente(@PathParam("id") Long id, Ingrediente ingrediente) {
-		IngredientesTM tm = new IngredientesTM(getPath());
+		RotondAndesTM tm = new RotondAndesTM(getPath());
 		try 
 		{
 			tm.addIngrediente(id, ingrediente);

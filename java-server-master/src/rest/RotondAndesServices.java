@@ -168,341 +168,340 @@ public class RotondAndesServices {
 //		return Response.status(200).entity(ingrediente).build();
 //	}
 
-	@POST
-	@Path("/usuarios/{id: \\d+}/productos")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response addProductos(@PathParam("id") Long id, Producto producto) {
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		try 
-		{
-//			tm.addProducto(id, producto);
-		} 
-		catch (Exception e)
-		{	
-			return Response.status(500).entity(doErrorMessage(e)).build();
-		}
-
-		return Response.status(200).entity(producto).build();
-	}
+//	@POST
+//	@Path("/usuarios/{id: \\d+}/productos")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response addProductos(@PathParam("id") Long id, Producto producto) {
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		try 
+//		{
+////			tm.addProducto(id, producto);
+//		} 
+//		catch (Exception e)
+//		{	
+//			return Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//
+//		return Response.status(200).entity(producto).build();
+//	}
 
 	/*---------------------------------------------------------------------------------------------------------------------*/
-	@GET
-	@Path("zonas/{id: \\d+}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getZona( @PathParam( "id" ) Long id )
-	{
-		RotondAndesTM tm = new RotondAndesTM( getPath( ) );
-		try
-		{
-			Zona z = tm.buscarZonaPorId(id);
-			return Response.status( 200 ).entity( z ).build( );			
-		}
-		catch( Exception e )
-		{
-			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
-		}
-	}
+//	@GET
+//	@Path("zonas/{id: \\d+}")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response getZona( @PathParam( "id" ) Long id )
+//	{
+//		RotondAndesTM tm = new RotondAndesTM( getPath( ) );
+//		try
+//		{
+//			Zona z = tm.buscarZonaPorId(id);
+//			return Response.status( 200 ).entity( z ).build( );			
+//		}
+//		catch( Exception e )
+//		{
+//			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
+//		}
+//	}
+//
+//	@GET
+//	@Path("/usuarios")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response getUsuarios(){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<Usuario> usuarios;
+//		try
+//		{
+//			usuarios = tm.darUsuarios();
+//			return Response.status( 200 ).entity( usuarios ).build( );			
+//		}
+//		catch( Exception e )
+//		{
+//			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
+//		}
+//	}
+//	@GET
+//	@Path("/usuariosPref")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response getUsuariosPreferencias(){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<UsuarioClientePref> usuarios;
+//		try
+//		{
+//			usuarios = tm.darUsuarioPreferencias();
+//			return Response.status( 200 ).entity( usuarios ).build( );			
+//		}
+//		catch( Exception e )
+//		{
+//			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
+//		}
+//	}
 
-	@GET
-	@Path("/usuarios")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getUsuarios(){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<Usuario> usuarios;
-		try
-		{
-			usuarios = tm.darUsuarios();
-			return Response.status( 200 ).entity( usuarios ).build( );			
-		}
-		catch( Exception e )
-		{
-			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
-		}
-	}
-	@GET
-	@Path("/usuariosPref")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getUsuariosPreferencias(){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<UsuarioClientePref> usuarios;
-		try
-		{
-			usuarios = tm.darUsuarioPreferencias();
-			return Response.status( 200 ).entity( usuarios ).build( );			
-		}
-		catch( Exception e )
-		{
-			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
-		}
-	}
+//	@POST
+//	@Path("/usuarios")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response addUsuario(Usuario usuario){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		try{
+//			tm.agregarUsuario(usuario);
+//		}catch(Exception e){
+//			Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(usuario).build();
+//	}
 
-	@POST
-	@Path("/usuarios")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addUsuario(Usuario usuario){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		try{
-			tm.agregarUsuario(usuario);
-		}catch(Exception e){
-			Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(usuario).build();
-	}
+//	/**
+//	 * Metodo que expone servicio REST usando GET que da todos los videos de la base de datos.
+//	 * <b>URL: </b> http://"ip o nombre de host":8080/VideoAndes/rest/videos
+//	 * @return Json con todos los videos de la base de datos o json con 
+//	 * el error que se produjo
+//	 */
+//	@GET
+//	@Path("/restaurantes")
+//	@Produces({ MediaType.APPLICATION_JSON })
+//	public Response getRestaurantes() {
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<Restaurante> restaurantes;
+//		try
+//		{
+//			restaurantes = tm.darRestaurantes();
+//			return Response.status( 200 ).entity( restaurantes ).build( );			
+//		}catch( Exception e )
+//		{
+//			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
+//		}
+//	}
+//
+//	@GET
+//	@Path("/usuarios/administradores")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response getAdministradores(){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<Usuario> usuarios;
+//		try
+//		{
+//			usuarios = tm.darAdministradores();
+//			return Response.status( 200 ).entity( usuarios ).build( );			
+//		}
+//		catch( Exception e )
+//		{
+//			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
+//		}
+//	}
 
-	/**
-	 * Metodo que expone servicio REST usando GET que da todos los videos de la base de datos.
-	 * <b>URL: </b> http://"ip o nombre de host":8080/VideoAndes/rest/videos
-	 * @return Json con todos los videos de la base de datos o json con 
-	 * el error que se produjo
-	 */
-	@GET
-	@Path("/restaurantes")
-	@Produces({ MediaType.APPLICATION_JSON })
-	public Response getRestaurantes() {
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<Restaurante> restaurantes;
-		try
-		{
-			restaurantes = tm.darRestaurantes();
-			return Response.status( 200 ).entity( restaurantes ).build( );			
-		}catch( Exception e )
-		{
-			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
-		}
-	}
-
-	@GET
-	@Path("/usuarios/administradores")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getAdministradores(){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<Usuario> usuarios;
-		try
-		{
-			usuarios = tm.darAdministradores();
-			return Response.status( 200 ).entity( usuarios ).build( );			
-		}
-		catch( Exception e )
-		{
-			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
-		}
-	}
-
-	@GET
-	@Path("/usuarios/{id: \\d+}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getUsuarioPorID(@PathParam("id") Long id){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		Usuario usuario;
-		try
-		{
-			usuario = tm.buscarUsuarioPorID(id);
-			return Response.status( 200 ).entity( usuario ).build( );	
-		}
-		catch( Exception e )
-		{
-			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
-		}
-	}
+//	@GET
+//	@Path("/usuarios/{id: \\d+}")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response getUsuarioPorID(@PathParam("id") Long id){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		Usuario usuario;
+//		try
+//		{
+//			usuario = tm.buscarUsuarioPorID(id);
+//			return Response.status( 200 ).entity( usuario ).build( );	
+//		}
+//		catch( Exception e )
+//		{
+//			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
+//		}
+//	}
 
 
-	@POST
-	@Path("/usuarios/{id: \\d+}/zonas")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response addZona(@PathParam("id") Long id, Zona zona) {
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		try 
-		{
-			tm.agregarZona(id, zona);
-		} 
-		catch (Exception e)
-		{	
-			return Response.status(500).entity(doErrorMessage(e)).build();
-		}
+//	@POST
+//	@Path("/usuarios/{id: \\d+}/zonas")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response addZona(@PathParam("id") Long id, Zona zona) {
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		try 
+//		{
+//			tm.agregarZona(id, zona);
+//		} 
+//		catch (Exception e)
+//		{	
+//			return Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//
+//		return Response.status(200).entity(zona).build();
+//	}
+//	@GET
+//	@Path("/zonas")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response getZonas(){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<Zona> zonas;
+//		try
+//		{
+//			zonas = tm.darZonas();
+//			return Response.status( 200 ).entity( zonas ).build( );			
+//		}
+//		catch( Exception e )
+//		{
+//			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
+//		}
+//	}
+//	@Path("/usuarios/administradores/{id: \\d+}/restaurantes")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response addRestaurante(@PathParam("id") Long id, Restaurante rest){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		try{
+//			tm.agregarRestaurante(id,rest);
+//		}catch(Exception e){
+//			Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(rest).build();
+//	}
 
-		return Response.status(200).entity(zona).build();
-	}
-	@GET
-	@Path("/zonas")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getZonas(){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<Zona> zonas;
-		try
-		{
-			zonas = tm.darZonas();
-			return Response.status( 200 ).entity( zonas ).build( );			
-		}
-		catch( Exception e )
-		{
-			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
-		}
+//	@POST
+//	@Path("/usuarios/{id: \\d+}/usuarios")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response addCliente(@PathParam("id") Long id, Usuario usuario){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		try{
+//			tm.agregarCliente(id, usuario);
+//		}catch(Exception e){
+//			Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(usuario).build();
+//	}
 
-	}
-	@Path("/usuarios/administradores/{id: \\d+}/restaurantes")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addRestaurante(@PathParam("id") Long id, Restaurante rest){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		try{
-			tm.agregarRestaurante(id,rest);
-		}catch(Exception e){
-			Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(rest).build();
-	}
+//	@GET
+//	@Path("/preferencias/categorias")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response getPreferenciasCategorias(){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<PreferenciaUsuarioCategoria> preferencias;
+//		try
+//		{
+//			preferencias = tm.darPreferenciasCategoria();
+//			return Response.status( 200 ).entity( preferencias ).build( );			
+//		}
+//		catch( Exception e )
+//		{
+//			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
+//		}
+//	}
 
-	@POST
-	@Path("/usuarios/{id: \\d+}/usuarios")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addCliente(@PathParam("id") Long id, Usuario usuario){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		try{
-			tm.agregarCliente(id, usuario);
-		}catch(Exception e){
-			Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(usuario).build();
-	}
+//	@GET
+//	@Path("/preferencias/precios")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response getPreferenciasPrecios(){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<PreferenciaUsuarioPrecio> preferencias;
+//		try
+//		{
+//			preferencias = tm.darPreferenciasPrecio();
+//			return Response.status( 200 ).entity( preferencias ).build( );			
+//		}
+//		catch( Exception e )
+//		{
+//			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
+//		}
+//	}
 
-	@GET
-	@Path("/preferencias/categorias")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getPreferenciasCategorias(){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<PreferenciaUsuarioCategoria> preferencias;
-		try
-		{
-			preferencias = tm.darPreferenciasCategoria();
-			return Response.status( 200 ).entity( preferencias ).build( );			
-		}
-		catch( Exception e )
-		{
-			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
-		}
-	}
+//	@GET
+//	@Path("/preferencias/zonas")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response getPreferenciasZonas(){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		List<PreferenciaUsuarioZona> preferencias;
+//		try
+//		{
+//			preferencias = tm.darPreferenciasZona();
+//			return Response.status( 200 ).entity( preferencias ).build( );			
+//		}
+//		catch( Exception e )
+//		{
+//			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
+//		}
+//	}
 
-	@GET
-	@Path("/preferencias/precios")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getPreferenciasPrecios(){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<PreferenciaUsuarioPrecio> preferencias;
-		try
-		{
-			preferencias = tm.darPreferenciasPrecio();
-			return Response.status( 200 ).entity( preferencias ).build( );			
-		}
-		catch( Exception e )
-		{
-			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
-		}
-	}
+//	@POST
+//	@Path("/usuarios/{id: \\d+}/preferencias/categorias")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response addPreferenciaCategoria(@PathParam("id") Long id, PreferenciaUsuarioCategoria preferencia){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		try{
+//			tm.agregarPreferenciaCategoria(id, preferencia);
+//		}catch(Exception e){
+//			Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(preferencia).build();
+//	}
 
-	@GET
-	@Path("/preferencias/zonas")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getPreferenciasZonas(){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		List<PreferenciaUsuarioZona> preferencias;
-		try
-		{
-			preferencias = tm.darPreferenciasZona();
-			return Response.status( 200 ).entity( preferencias ).build( );			
-		}
-		catch( Exception e )
-		{
-			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
-		}
-	}
+//	@POST
+//	@Path("/usuarios/{id: \\d+}/preferencias/precios")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response addPreferenciaPrecio(@PathParam("id") Long id, PreferenciaUsuarioPrecio preferencia){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		try{
+//			tm.agregarPreferenciaPrecio(id, preferencia);
+//		}catch(Exception e){
+//			Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(preferencia).build();
+//	}
 
-	@POST
-	@Path("/usuarios/{id: \\d+}/preferencias/categorias")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addPreferenciaCategoria(@PathParam("id") Long id, PreferenciaUsuarioCategoria preferencia){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		try{
-			tm.agregarPreferenciaCategoria(id, preferencia);
-		}catch(Exception e){
-			Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(preferencia).build();
-	}
+//	@POST
+//	@Path("/usuarios/{id: \\d+}/preferencias/zonas")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response addPreferenciaZona(@PathParam("id") Long id, PreferenciaUsuarioZona preferencia){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		try{
+//			tm.agregarPreferenciaZona(id, preferencia);
+//		}catch(Exception e){
+//			Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(preferencia).build();
+//	}
 
-	@POST
-	@Path("/usuarios/{id: \\d+}/preferencias/precios")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addPreferenciaPrecio(@PathParam("id") Long id, PreferenciaUsuarioPrecio preferencia){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		try{
-			tm.agregarPreferenciaPrecio(id, preferencia);
-		}catch(Exception e){
-			Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(preferencia).build();
-	}
+//	@PUT
+//	@Path("/usuarios/{id: \\d+}/preferencias/categorias/")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response updatePreferenciaCategoria(@PathParam("id") Long id, PreferenciaUsuarioCategoria preferencia){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		try{
+//			tm.updatePreferenciaCategoria(id, preferencia);
+//		}catch(Exception e){
+//			Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(preferencia).build();
+//	}
 
-	@POST
-	@Path("/usuarios/{id: \\d+}/preferencias/zonas")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addPreferenciaZona(@PathParam("id") Long id, PreferenciaUsuarioZona preferencia){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		try{
-			tm.agregarPreferenciaZona(id, preferencia);
-		}catch(Exception e){
-			Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(preferencia).build();
-	}
+//	@PUT
+//	@Path("/usuarios/{id: \\d+}/preferencias/precio/")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response updatePreferenciaPrecio(@PathParam("id") Long id, PreferenciaUsuarioPrecio preferencia){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		try{
+//			tm.updatePreferenciaPrecio(id, preferencia);
+//		}catch(Exception e){
+//			Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(preferencia).build();
+//	}
 
-	@PUT
-	@Path("/usuarios/{id: \\d+}/preferencias/categorias/")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response updatePreferenciaCategoria(@PathParam("id") Long id, PreferenciaUsuarioCategoria preferencia){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		try{
-			tm.updatePreferenciaCategoria(id, preferencia);
-		}catch(Exception e){
-			Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(preferencia).build();
-	}
-
-	@PUT
-	@Path("/usuarios/{id: \\d+}/preferencias/precio/")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response updatePreferenciaPrecio(@PathParam("id") Long id, PreferenciaUsuarioPrecio preferencia){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		try{
-			tm.updatePreferenciaPrecio(id, preferencia);
-		}catch(Exception e){
-			Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(preferencia).build();
-	}
-
-	@PUT
-	@Path("/usuarios/{id: \\d+}/preferencias/zonas/")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response updatePreferenciaZona(@PathParam("id") Long id, PreferenciaUsuarioZona preferencia){
-		RotondAndesTM tm = new RotondAndesTM(getPath());
-		try{
-			tm.updatePreferenciaZona(id, preferencia);
-		}catch(Exception e){
-			Response.status(500).entity(doErrorMessage(e)).build();
-		}
-		return Response.status(200).entity(preferencia).build();
-	}
+//	@PUT
+//	@Path("/usuarios/{id: \\d+}/preferencias/zonas/")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response updatePreferenciaZona(@PathParam("id") Long id, PreferenciaUsuarioZona preferencia){
+//		RotondAndesTM tm = new RotondAndesTM(getPath());
+//		try{
+//			tm.updatePreferenciaZona(id, preferencia);
+//		}catch(Exception e){
+//			Response.status(500).entity(doErrorMessage(e)).build();
+//		}
+//		return Response.status(200).entity(preferencia).build();
+//	}
 
 //	@GET
 //	@Path("/productos/mas-ofrecidos")

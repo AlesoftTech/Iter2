@@ -2,6 +2,7 @@ package rest;
 
 import java.util.List;
 
+
 import javax.servlet.ServletContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -12,7 +13,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import tm.ProductosTM;
 import tm.RotondAndesTM;
 import vos.Producto;
 
@@ -40,7 +40,7 @@ public class ProductosServices {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response getProductos() {
-		ProductosTM tm = new ProductosTM(getPath());
+		RotondAndesTM tm = new RotondAndesTM(getPath());
 		List<Producto> productos;
 		try {
 			productos = tm.darProductos();
@@ -49,12 +49,12 @@ public class ProductosServices {
 		}
 		return Response.status(200).entity(productos).build();
 	}
-	
+
 	@GET
 	@Path("/restaurantes/{id: \\d+}")
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response getProductosRestaurante(@PathParam("id") Long id) {
-		ProductosTM tm = new ProductosTM(getPath());
+		RotondAndesTM tm = new RotondAndesTM(getPath());
 		List<Producto> productos;
 		try {
 			productos = tm.darProductosRestaurante(id);
@@ -67,7 +67,7 @@ public class ProductosServices {
 	@Path("/categorias/{id: \\d+}")
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response getProductosCategoria(@PathParam("id") Long id) {
-		ProductosTM tm = new ProductosTM(getPath());
+		RotondAndesTM tm = new RotondAndesTM(getPath());
 		List<Producto> productos;
 		try {
 			productos = tm.darProductosCategoria(id);
@@ -80,7 +80,7 @@ public class ProductosServices {
 	@Path("/precio/{precioMenor: \\d+}/{precioMayor: \\d+}")
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response getProductosPrecios(@PathParam("precioMenor") Long pMenor, @PathParam("precioMayor") Long pMayor) {
-		ProductosTM tm = new ProductosTM(getPath());
+		RotondAndesTM tm = new RotondAndesTM(getPath());
 		List<Producto> productos;
 		try {
 			productos = tm.darProductosPrecio(pMenor, pMayor);
@@ -94,7 +94,7 @@ public class ProductosServices {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response getProductosMasOfrecidos(){
-		ProductosTM tm = new ProductosTM(getPath());
+		RotondAndesTM tm = new RotondAndesTM(getPath());
 		List<Producto> ofrecidos;
 		try
 		{
@@ -106,5 +106,5 @@ public class ProductosServices {
 			return Response.status( 500 ).entity( doErrorMessage( e ) ).build( );
 		}
 	}
-	
+
 }
